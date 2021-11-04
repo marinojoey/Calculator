@@ -32,16 +32,10 @@ h1 {
 .button:hover {
     background-color: rgb(182, 182, 182);
 }
-.buttons {
-    width: 24%;
-    height: 15%;
-    border-radius: 7px;
-    border: 0;
-    background-color: rgb(233, 248, 248);
+.button:active {
+    border: solid black 2px;
 }
-.buttons:hover {
-    background-color: rgb(182, 182, 182);
-}
+
 .clear {
     width: 49%;
     background-color: palevioletred;

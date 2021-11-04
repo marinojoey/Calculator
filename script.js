@@ -1,4 +1,5 @@
 // Declarations
+const buttonEl = document.querySelectorAll(".button")
 const screenEl = document.querySelector(".screen")
 const numberBtn = document.querySelectorAll(".number")
 const divideBtn = document.querySelector(".divide")
@@ -13,9 +14,14 @@ const operatorBtn = document.querySelectorAll('.op')
 let num = ''
 let parsedNum
 let numArr = []
+
+// Named Functions
 let resetScreen = function() {
     screenEl.textContent = ''
 }
+
+
+
 
 // Arithmetic
 const calc = (() => {
@@ -111,6 +117,7 @@ equalsBtn.addEventListener('click', function() {
 equalsBtn.addEventListener('click', function() {
     numArr = []
 })
+
 
 clearBtn.addEventListener('click', function() {
     screenEl.textContent = ''
