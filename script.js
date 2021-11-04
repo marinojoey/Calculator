@@ -13,6 +13,9 @@ const operatorBtn = document.querySelectorAll('.op')
 let num = ''
 let parsedNum
 let numArr = []
+let resetScreen = function() {
+    screenEl.textContent = ''
+}
 
 // Arithmetic
 const calc = (() => {
@@ -34,53 +37,55 @@ const calc = (() => {
 // Event Listeners
 numberBtn.forEach((numberBtn) => {
     numberBtn.addEventListener('click', function() {
-    if (numberBtn.textContent === '.' && screenEl.textContent.includes('.') == false) {
-        num += numberBtn.textContent
-        parsedNum = parseFloat(num)
-        screenEl.textContent = parsedNum + '.'
-    } else if (numberBtn.textContent != '.') {
-        num += numberBtn.textContent
-        parsedNum = parseFloat(num)
-        screenEl.textContent = parsedNum
+    if (numArr.length < 2) {
+        if (numberBtn.textContent === '.' && screenEl.textContent.includes('.') == false) {
+            num += numberBtn.textContent
+            parsedNum = parseFloat(num)
+            screenEl.textContent = parsedNum + '.'
+        } else if (numberBtn.textContent != '.') {
+            num += numberBtn.textContent
+            parsedNum = parseFloat(num)
+            screenEl.textContent = parsedNum
+        }
+    } else if (numArr.length >= 2) {
+        resetScreen()
+        if (numberBtn.textContent === '.' && screenEl.textContent.includes('.') == false) {
+            num += numberBtn.textContent
+            parsedNum = parseFloat(num)
+            screenEl.textContent = parsedNum + '.'
+        } else if (numberBtn.textContent != '.') {
+            num += numberBtn.textContent
+            parsedNum = parseFloat(num)
+            screenEl.textContent = parsedNum
+        }
     }
 })});
-let resetScreen = function() {
-    screenEl.textContent = ''
-}
+
 operatorBtn.forEach((operatorBtn) => {
     operatorBtn.addEventListener('click', function() {
         if (operatorBtn.textContent === '+') {
             parsedNum = parseFloat(screenEl.textContent)
             numArr.push(parsedNum)
             numArr.push(calc.add)
-            resetScreen()
             num = 0
-            console.log(numArr)
         } else if (operatorBtn.textContent === '-') {
             parsedNum = parseFloat(screenEl.textContent)
             numArr.push(parsedNum)
             numArr.push(calc.subtract)
-            resetScreen()
             num = 0
-            console.log(numArr)
         } else if (operatorBtn.textContent === 'X') {
             parsedNum = parseFloat(screenEl.textContent)
             numArr.push(parsedNum)
             numArr.push(calc.multiply)
-            resetScreen()
             num = 0
-            console.log(numArr)
         } else if (operatorBtn.textContent === '/') {
             parsedNum = parseFloat(screenEl.textContent)
             numArr.push(parsedNum)
             numArr.push(calc.divide)
-            resetScreen()
             num = 0
-            console.log(numArr)
         } else if (operatorBtn.textContent === '=') {
             parsedNum = parseFloat(screenEl.textContent)
             numArr.push(parsedNum)
-            console.log(numArr)
         }
     }
 )})

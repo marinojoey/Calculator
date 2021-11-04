@@ -37,7 +37,7 @@ h1 {
     height: 15%;
     border-radius: 7px;
     border: 0;
-    background-color: azure;
+    background-color: rgb(233, 248, 248);
 }
 .buttons:hover {
     background-color: rgb(182, 182, 182);
